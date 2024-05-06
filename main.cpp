@@ -25,6 +25,22 @@
 #define AUTUMN 4
 
 
+
+int sum = 0;
+
+#define CALL_FUNCTION(func) for (int i = 0; i < 5; ++i) { func(i, train[i]); }
+
+void checkTrain(int index, int passengers) {
+    if (passengers > 20) {
+        std::cout << "Railway car #" << index << " is overcrowded by " << passengers - 20 << " passengers" << std::endl;
+    } else if (passengers < 20) {
+        std::cout << "Railway car #" << index << " isn't filled. " << passengers - 20 << " empty sits" << std::endl;
+    }
+    sum += passengers;
+}
+
+
+
 int main() {
     //23.4.1
     /*
@@ -53,6 +69,7 @@ int main() {
     */
 
     //23.4.2
+    /*
     int season;
     std::cin >> season;
     if (season == SUMMER)
@@ -63,7 +80,16 @@ int main() {
         std::cout << "It's springtime!" << std::endl;
     else if (season == AUTUMN)
         std::cout << "It's fall time!" << std::endl;
-    
-    
+    */
+
+
+    // 23.4.3 check passengers in train cars
+    int train[5];
+    for (int i = 0; i < 5; i++) {
+        std::cin >> train[i];
+    }
+    CALL_FUNCTION(checkTrain);
+
+
 
 }
